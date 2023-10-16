@@ -1,9 +1,6 @@
 const mongodb = require('../db/db_connect');
 const ClientId = require('mongodb').ClientId;
 
-// Get Data Models
-
-// Get all clients
 const getAllClient = async (req, res) => {
     const result = await mongodb.getDb().db().collection('clients').find();
     result.toArray().then((lists) => {
@@ -67,7 +64,7 @@ const updateClient = async (req, res) => {
   };
 
 // Delete a client
-const deleteclient = async (req, res) => {
+const deleteClient = async (req, res) => {
     const clientId = new ClientId(req.params.id);
     const response = await mongodb
       .getDb()
@@ -87,7 +84,7 @@ const deleteclient = async (req, res) => {
     getSingleClient,
     createClient,
     updateClient,
-    deleteclient
+    deleteClient
   };
 
 
