@@ -36,5 +36,8 @@
     "swagger": "^0.7.5",
     "swagger-json": "^2.0.0",
     "swagger-ui-express": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=14 <18.17.1"
   }
 }
