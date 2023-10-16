@@ -5,7 +5,7 @@ const doc = {
     title: 'My API',
     description: 'Car API'
   },
-  host: 'cshttps://cse341-personal-project-ynwi.onrender.com',
+  host: 'https://cse341-personal-project-ynwi.onrender.com',
   schemes: ['https']
 };
 

@@ -7,6 +7,15 @@
   },
   "host": "cse341-personal-project-ynwi.onrender.com",
   "basePath": "/",
+  "tags": [{
+      "name": "client",
+      "description": "Stuff for inputing and changing a client's data."
+    },
+    {
+      "name": "car",
+      "description": "car information."
+    }
+  ],
   "schemes": [
     "https"
   ],
@@ -23,6 +32,9 @@
     },
     "/clients/": {
       "get": {
+        "tags": [
+          "client"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -34,8 +46,79 @@
         }
       },
       "post": {
+        "tags": [
+          "client"
+        ],
         "description": "",
-        "parameters": [
+        "parameters": [{
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "first_name": {
+                "example": "any"
+              },
+              "last_name": {
+                "example": "any"
+              },
+              "email_address": {
+                "example": "any"
+              },
+              "phoneNumber": {
+                "example": "any"
+              },
+              "street_address": {
+                "example": "any"
+              },
+              "city": {
+                "example": "any"
+              }
+            }
+          }
+        }],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/clients/{id}": {
+      "get": {
+        "tags": [
+          "client"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "client"
+        ],
+        "description": "Update a Client",
+        "parameters": [{
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "body",
             "in": "body",
@@ -52,7 +135,7 @@
                   "example": "any"
                 },
                 "phoneNumber": {
-                  "example": "any"
+                  "example": "1234567890"
                 },
                 "street_address": {
                   "example": "any"
@@ -65,8 +148,40 @@
           }
         ],
         "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+    },
+      "delete": {
+        "tags": [
+          "client"
+        ],
+        "description": "Delete a Client",
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
           "201": {
             "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -74,29 +189,11 @@
         }
       }
     },
-    "/clients/{id}": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/cars/": {
       "get": {
+        "tags": [
+          "car"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -108,8 +205,82 @@
         }
       },
       "post": {
+        "tags": [
+          "car"
+        ],
         "description": "",
-        "parameters": [
+        "parameters": [{
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "make": {
+                "example": "any"
+              },
+              "model": {
+                "example": "any"
+              },
+              "description": {
+                "example": "any"
+              },
+              "image": {
+                "example": "any"
+              },
+              "price": {
+                "example": "any"
+              },
+              "color": {
+                "example": "any"
+              },
+              "stock": {
+                "example": "any"
+              }
+            }
+          }
+        }],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/cars/{id}": {
+      "get": {
+        "tags": [
+          "car"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "car"
+        ],
+        "description": "Update a Car",
+        "parameters": [{
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "body",
             "in": "body",
@@ -142,35 +313,47 @@
           }
         ],
         "responses": {
-          "201": {
-            "description": "Created"
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
           }
         }
-      }
+
     },
-    "/cars/{id}": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
+    "delete": {
+      "tags": [
+        "car"
+      ],
+      "description": "Delete a Car",
+      "parameters": [{
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }],
+      "responses": {
+        "201": {
+          "description": "Created"
+        },
+        "400": {
+          "description": "Bad Request"
+        },
+        "401": {
+          "description": "Unauthorized"
+        },
+        "500": {
+          "description": "Internal Server Error"
         }
       }
     }
   }
+}
 }
