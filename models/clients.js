@@ -1,30 +1,18 @@
-module.exports = (mongoose) => {
-    const clientsSchema = mongoose.Schema({
-      first_name: {
-        type: String
-      },
-      last_name: {
-        type: String
-      },
-      email_address: {
-        type: String
-      },
-      phoneNumber: {
-        type: String
-      },
-      street_address: {
-        type: String
-      },
-      city:{
-        type: String
-      },
-      date: {
-        type: Date,
-        default: Date.now,
-      },
-    },
-      { timestamps: true }
+  module.exports = (mongoose) => {
+    const Client = mongoose.model(
+      'temples',
+      mongoose.Schema(
+        {
+          first_name: String,
+          last_name: String,
+          email_address: String,
+          phoneNumber: String,
+          street_address: String,
+          city: String,
+        },
+        { timestamps: true }
+      )
     );
   
-    return mongoose.model('clients', clientsSchema);
-  };
+    return Client;
+  }
