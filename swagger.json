@@ -5,7 +5,7 @@
     "description": "Car Client API",
     "version": "1.0.0"
   },
-  "host": "cse341-jerry.onrender.com",
+  "host": "cse341-personal-project-ynwi.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
