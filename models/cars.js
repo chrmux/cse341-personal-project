@@ -1,19 +1,16 @@
-module.exports = (mongoose) => {
-  const Car = mongoose.model(
-    'cars',
-    mongoose.Schema(
-      {
-      make: String,
-      model: String,
-      description: String,
-      image: String,
-      price: String,
-      color: String,
-      stock: String,
-    },
-    { timestamps: true }
-    )
-    );
-  
-    return Car;
-  }
+const express = require('express');
+const router = express.Router();
+
+const carsController = require('../controllers/cars');
+
+router.get('/', carsController.getAllCar);
+
+router.get('/:id', carsController.getSingleCar);
+
+router.post('/', carsController.createCar);
+
+router.put('/:id', carsController.updateCar);
+
+router.delete('/', carsController.deleteCar);
+
+module.exports = router;

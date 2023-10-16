@@ -1,18 +1,16 @@
-  module.exports = (mongoose) => {
-    const Client = mongoose.model(
-      'temples',
-      mongoose.Schema(
-        {
-          first_name: String,
-          last_name: String,
-          email_address: String,
-          phoneNumber: String,
-          street_address: String,
-          city: String,
-        },
-        { timestamps: true }
-      )
-    );
-  
-    return Client;
-  }
+const express = require('express');
+const router = express.Router();
+
+const clientsController = require('../controllers/clients');
+
+router.get('/', clientsController.getAllClient);
+
+router.get('/:id', clientsController.getSingleClient);
+
+router.post('/', clientsController.createClient);
+
+router.put('/:id', clientsController.updateClient);
+
+router.delete('/', clientsController.deleteClient);
+
+module.exports = router;
