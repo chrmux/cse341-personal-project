@@ -9,4 +9,8 @@ router.get('/:id', clientsController.getSingleClient);
 
 router.post('/', clientsController.createClient);
 
+router.put('/:id', clientsController.updateClient);
+
+router.delete('/', clientsController.deleteClient);
+
 module.exports = router;
