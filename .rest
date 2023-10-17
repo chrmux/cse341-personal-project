@@ -55,3 +55,6 @@ Content-Type: application/json
     "color": "Black",
     "stock": "2"
 }
+
+###
+GET http://localhost:8080/users HTTP/1.1
