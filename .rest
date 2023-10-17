@@ -49,7 +49,7 @@ Content-Type: application/json
 {
     "make": "Ford",
     "model": "Model T",
-    "description": "The Ford Model T can be a bit tricky to drive. It was the first car to be put into production. You can get it in any color you want as long as it\'s black",
+    "description": "The Ford Model T can be a bit tricky to drive. It was the first car to be put into production. You can get it in any color you want as long as it's black",
     "image": "ford.jpeg",
     "price": "3000",
     "color": "Black",

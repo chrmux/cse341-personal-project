@@ -206,7 +206,7 @@
       },
       "post": {
         "tags": [
-          "car"
+          "client"
         ],
         "description": "",
         "parameters": [{
@@ -215,25 +215,22 @@
           "schema": {
             "type": "object",
             "properties": {
-              "make": {
+              "first_name": {
                 "example": "any"
               },
-              "model": {
+              "last_name": {
                 "example": "any"
               },
-              "description": {
+              "email_address": {
                 "example": "any"
               },
-              "image": {
+              "phoneNumber": {
                 "example": "any"
               },
-              "price": {
+              "street_address": {
                 "example": "any"
               },
-              "color": {
-                "example": "any"
-              },
-              "stock": {
+              "city": {
                 "example": "any"
               }
             }
