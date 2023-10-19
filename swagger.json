@@ -20,6 +20,7 @@
     },
     "/clients/": {
       "get": {
+        "tags": ["clients"],
         "description": "",
         "produces": [
           "application/json"
@@ -32,6 +33,7 @@
         }
       },
       "post": {
+        "tags": ["clients"],
         "description": "",
         "parameters": [
           {
@@ -71,6 +73,7 @@
     },
     "/clients/{id}": {
       "get": {
+        "tags": ["clients"],
         "description": "",
         "produces": [
           "application/json"
@@ -90,6 +93,7 @@
         }
       },
       "put": {
+        "tags": ["clients"],
         "description": "",
         "parameters": [
           {
@@ -133,6 +137,7 @@
         }
       },
       "delete": {
+        "tags": ["clients"],
         "description": "",
         "parameters": [
           {
@@ -153,6 +158,7 @@
       }
     },"/cars/": {
       "get": {
+        "tags": ["cars"],
         "description": "",
         "produces": [
           "application/json"
@@ -165,6 +171,7 @@
         }
       },
       "post": {
+        "tags": ["cars"],
         "description": "",
         "parameters": [
           {
@@ -207,6 +214,7 @@
     },
     "/cars/{id}": {
       "get": {
+        "tags": ["cars"],
         "description": "",
         "produces": [
           "application/json"
@@ -226,6 +234,7 @@
         }
       },
       "put": {
+        "tags": ["cars"],
         "description": "",
         "parameters": [
           {
@@ -272,6 +281,7 @@
         }
       },
       "delete": {
+        "tags": ["cars"],
         "description": "",
         "parameters": [
           {
