@@ -1,0 +1,23 @@
+{
+  "contact": {
+    "firstName": "catherine",
+    "lastName": "Serrano",
+    "email": "cathmarollano@test.com",
+    "favoriteColor": "Purple",
+    "birthday": "09/28/1988"
+  },
+  "contact2": {
+    "firstName": "Jerry",
+    "lastName": "Marollano",
+    "email": "jnmmarollano@gmail.com",
+    "favoriteColor": "Gray",
+    "birthday": "09/25/1987"
+  },
+  "contact3": {
+    "firstName": "kesia",
+    "lastName": "Marollano",
+    "email": "Kesh@test.com",
+    "favoriteColor": "Red",
+    "birthday": "12/22/2014"
+  }
+}

@@ -1,0 +1,77 @@
+// LOCALHOST
+### Get all contacts
+GET http://localhost:8080/clients 
+
+
+### Get contact by id
+GET http://localhost:8080/clients/622023f642f9ab4cd6e060b3
+
+
+### Create contact
+POST http://localhost:8080/clients HTTP/1.1
+content-type: application/json
+
+  {
+    "first_name": "jerry",
+    "last_name": "marollano",
+    "email_address": "jnmarollano@gmail.com",
+    "phoneNumber": "5555-555-555",
+    "street_address": "P-6 POB AREA Daraga Albay",
+    "city": "Legazpi"
+  }
+
+
+### PUT contact
+PUT http://localhost:8080/clients/652eaf1b2cc3f2c6f336f7af HTTP/1.1
+content-type: application/json
+
+  {
+    "first_name": "jerry",
+    "last_name": "marollano",
+    "email_address": "jnmarollano@gmail.com",
+    "phoneNumber": "5555-555-555",
+    "street_address": "P-6 POB AREA Daraga Albay",
+    "city": "Legazpi"
+  }
+### DELETE contact
+DELETE http://localhost:8080/clients/652eaf1b2cc3f2c6f336f7af HTTP/1.1
+
+// PRODUCTION Deploy
+### Get all contacts
+GET https://cse341-personal-project-ynwi.onrender.com/clients
+
+
+### Get contact by id
+GET https://cse341-personal-project-ynwi.onrender.com/clients/652eaf1b2cc3f2c6f336f7af
+
+
+### Create contact
+POST https://cse341-personal-project-ynwi.onrender.com/clients HTTP/1.1
+content-type: application/json
+
+  {
+    "first_name": "jerry",
+    "last_name": "marollano",
+    "email_address": "jnmarollano@gmail.com",
+    "phoneNumber": "5555-555-555",
+    "street_address": "P-6 POB AREA Daraga Albay",
+    "city": "Legazpi"
+  }
+
+
+### PUT contact
+PUT https://cse341-personal-project-ynwi.onrender.com/clients/652eaf1b2cc3f2c6f336f7af HTTP/1.1
+content-type: application/json
+
+  {
+    "first_name": "jerry",
+    "last_name": "marollano",
+    "email_address": "jnmarollano@gmail.com",
+    "phoneNumber": "5555-555-555",
+    "street_address": "P-6 POB AREA Daraga Albay",
+    "city": "Legazpi"
+  }
+
+
+### DELETE contact
+DELETE https://cse341-personal-project-ynwi.onrender.com/clients/652eaf1b2cc3f2c6f336f7af HTTP/1.1

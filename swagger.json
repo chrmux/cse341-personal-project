@@ -2,24 +2,11 @@
   "swagger": "2.0",
   "info": {
     "title": "My API",
-    "description": "Car Client API",
+    "description": "Cars Client API",
     "version": "1.0.0"
   },
   "host": "cse341-personal-project-ynwi.onrender.com",
   "basePath": "/",
-  "tags": [{
-      "name": "client",
-      "description": "Stuff for inputing and changing a client's information."
-    },
-    {
-      "name": "car",
-      "description": "Stuff for inputing and changing a car information."
-    },
-    {
-      "name": "user",
-      "description": "Stuff for inputing and changing a client's data."
-    }
-  ],
   "schemes": [
     "https"
   ],
@@ -27,22 +14,17 @@
     "/api-docs": {
       "get": {
         "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
+        "parameters": [],
+        "responses": {}
       }
     },
     "/clients/": {
       "get": {
-        "tags": [
-          "client"
-        ],
         "description": "",
         "produces": [
           "application/json"
         ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
@@ -50,37 +32,33 @@
         }
       },
       "post": {
-        "tags": [
-          "client"
-        ],
         "description": "",
-        "parameters": [{
-          "name": "body",
-          "in": "body",
-          "schema": {
-            "type": "object",
-            "properties": {
-              "first_name": {
-                "example": "any"
-              },
-              "last_name": {
-                "example": "any"
-              },
-              "email_address": {
-                "example": "any"
-              },
-              "phoneNumber": {
-                "example": "any"
-              },
-              "street_address": {
-                "example": "any"
-              },
-              "city": {
-                "example": "any"
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "favoriteColor": {
+                  "example": "any"
+                },
+                "birthday": {
+                  "example": "any"
+                }
               }
             }
           }
-        }],
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -93,19 +71,18 @@
     },
     "/clients/{id}": {
       "get": {
-        "tags": [
-          "client"
-        ],
         "description": "",
         "produces": [
           "application/json"
         ],
-        "parameters": [{
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "type": "string"
-        }],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -113,11 +90,9 @@
         }
       },
       "put": {
-        "tags": [
-          "client"
-        ],
-        "description": "Update a Client",
-        "parameters": [{
+        "description": "",
+        "parameters": [
+          {
             "name": "id",
             "in": "path",
             "required": true,
@@ -129,22 +104,19 @@
             "schema": {
               "type": "object",
               "properties": {
-                "first_name": {
+                "firstName": {
                   "example": "any"
                 },
-                "last_name": {
+                "lastName": {
                   "example": "any"
                 },
-                "email_address": {
+                "email": {
                   "example": "any"
                 },
-                "phoneNumber": {
-                  "example": "1234567890"
-                },
-                "street_address": {
+                "favoriteColor": {
                   "example": "any"
                 },
-                "city": {
+                "birthday": {
                   "example": "any"
                 }
               }
@@ -155,346 +127,30 @@
           "204": {
             "description": "No Content"
           },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
           "500": {
             "description": "Internal Server Error"
           }
         }
-    },
+      },
       "delete": {
-        "tags": [
-          "client"
-        ],
-        "description": "Delete a Client",
-        "parameters": [{
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "type": "string"
-        }],
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/cars/": {
-      "get": {
-        "tags": [
-          "car"
-        ],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "client"
-        ],
-        "description": "",
-        "parameters": [{
-          "name": "body",
-          "in": "body",
-          "schema": {
-            "type": "object",
-            "properties": {
-              "first_name": {
-                "example": "any"
-              },
-              "last_name": {
-                "example": "any"
-              },
-              "email_address": {
-                "example": "any"
-              },
-              "phoneNumber": {
-                "example": "any"
-              },
-              "street_address": {
-                "example": "any"
-              },
-              "city": {
-                "example": "any"
-              }
-            }
-          }
-        }],
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/cars/{id}": {
-      "get": {
-        "tags": [
-          "car"
-        ],
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [{
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "type": "string"
-        }],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "car"
-        ],
-        "description": "Update a Car",
-        "parameters": [{
+        "parameters": [
+          {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "make": {
-                  "example": "any"
-                },
-                "model": {
-                  "example": "any"
-                },
-                "description": {
-                  "example": "any"
-                },
-                "image": {
-                  "example": "any"
-                },
-                "price": {
-                  "example": "any"
-                },
-                "color": {
-                  "example": "any"
-                },
-                "stock": {
-                  "example": "any"
-                }
-              }
-            }
           }
         ],
         "responses": {
           "204": {
             "description": "No Content"
           },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
           "500": {
             "description": "Internal Server Error"
           }
-        }
-    },
-    "delete": {
-      "tags": [
-        "car"
-      ],
-      "description": "Delete a Car",
-      "parameters": [{
-        "name": "id",
-        "in": "path",
-        "required": true,
-        "type": "string"
-      }],
-      "responses": {
-        "201": {
-          "description": "Created"
-        },
-        "400": {
-          "description": "Bad Request"
-        },
-        "401": {
-          "description": "Unauthorized"
-        },
-        "500": {
-          "description": "Internal Server Error"
-        }
-      }
-    }
-  },
-  "/users/": {
-    "get": {
-      "tags": [
-        "user"
-      ],
-      "description": "",
-      "produces": [
-        "application/json"
-      ],
-      "responses": {
-        "200": {
-          "description": "OK"
-        }
-      }
-    },
-    "post": {
-      "tags": [
-        "user"
-      ],
-      "description": "",
-      "parameters": [{
-        "name": "body",
-        "in": "body",
-        "schema": {
-          "type": "object",
-          "properties": {
-            "username": {
-              "example": "any"
-            },
-            "email": {
-              "example": "any"
-            },
-            "password": {
-              "example": "any"
-            }
-          }
-        }
-      }],
-      "responses": {
-        "201": {
-          "description": "Created"
-        },
-        "500": {
-          "description": "Internal Server Error"
-        }
-      }
-    }
-  },
-  "/users/{id}": {
-    "get": {
-      "tags": [
-        "user"
-      ],
-      "description": "",
-      "produces": [
-        "application/json"
-      ],
-      "parameters": [{
-        "name": "id",
-        "in": "path",
-        "required": true,
-        "type": "string"
-      }],
-      "responses": {
-        "200": {
-          "description": "OK"
-        }
-      }
-    },
-    "put": {
-      "tags": [
-        "user"
-      ],
-      "description": "Update a User",
-      "parameters": [{
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "type": "string"
-        },
-        {
-          "name": "body",
-          "in": "body",
-          "schema": {
-            "type": "object",
-            "properties": {
-              "username": {
-                "example": "any"
-              },
-              "email": {
-                "example": "any"
-              },
-              "password": {
-                "example": "any"
-              }
-            }
-          }
-        }
-      ],
-      "responses": {
-        "204": {
-          "description": "No Content"
-        },
-        "400": {
-          "description": "Bad Request"
-        },
-        "401": {
-          "description": "Unauthorized"
-        },
-        "500": {
-          "description": "Internal Server Error"
-        }
-      }
-  },
-    "delete": {
-      "tags": [
-        "user"
-      ],
-      "description": "Delete a User",
-      "parameters": [{
-        "name": "id",
-        "in": "path",
-        "required": true,
-        "type": "string"
-      }],
-      "responses": {
-        "201": {
-          "description": "Created"
-        },
-        "400": {
-          "description": "Bad Request"
-        },
-        "401": {
-          "description": "Unauthorized"
-        },
-        "500": {
-          "description": "Internal Server Error"
         }
       }
     }
   }
-}
 }
