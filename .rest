@@ -1,6 +1,6 @@
 // LOCALHOST
 ### Get all contacts
-GET http://localhost:8080/clients 
+GET http://localhost:8080/cars 
 
 
 ### Get contact by id

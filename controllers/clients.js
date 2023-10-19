@@ -1,7 +1,7 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
-const getAll = async (req, res) => {
+const getAllClient = async (req, res) => {
   const result = await mongodb.getDb().db().collection('clients').find();
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
@@ -9,7 +9,7 @@ const getAll = async (req, res) => {
   });
 };
 
-const getSingle = async (req, res) => {
+const getSingleClient = async (req, res) => {
   const clientId = new ObjectId(req.params.id);
   const result = await mongodb.getDb().db().collection('clients').find({ _id: clientId });
   result.toArray().then((lists) => {
@@ -20,11 +20,12 @@ const getSingle = async (req, res) => {
 
 const createClient = async (req, res) => {
   const client = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    favoriteColor: req.body.favoriteColor,
-    birthday: req.body.birthday
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    email_address: req.body.email_address,
+    phoneNumber: req.body.phoneNumber,
+    street_address: req.body.street_address,
+    city: req.body.city
   };
   const response = await mongodb.getDb().db().collection('clients').insertOne(client);
   if (response.acknowledged) {
@@ -38,11 +39,12 @@ const updateClient = async (req, res) => {
   const clientId = new ObjectId(req.params.id);
   // be aware of updateOne if you only want to update specific fields
   const client = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    favoriteColor: req.body.favoriteColor,
-    birthday: req.body.birthday
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    email_address: req.body.email_address,
+    phoneNumber: req.body.phoneNumber,
+    street_address: req.body.street_address,
+    city: req.body.city
   };
   const response = await mongodb
     .getDb()
@@ -69,8 +71,8 @@ const deleteClient = async (req, res) => {
 };
 
 module.exports = {
-  getAll,
-  getSingle,
+  getAllClient,
+  getSingleClient,
   createClient,
   updateClient,
   deleteClient
