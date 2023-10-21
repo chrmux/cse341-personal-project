@@ -1,7 +1,7 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 const Clients = require('../models/clients-model');
-const handleErrors = require('../helper/handleErrors');
+//const handleErrors = require('../helper/handleErrors');
 
 const getAllClient = async (req, res) => {
   const result = await mongodb.getDb().db().collection('clients').find();
@@ -35,8 +35,7 @@ const createClient = async (req, res) => {
 		res.status(201).json(response);
 
 	} catch (err) {
-		const errors = handleErrors(err);
-		res.status(500).json({ errors });
+		res.status(500).json({ err });
 		res.status(400);
 	}
 };
@@ -67,8 +66,7 @@ const updateClient = async (req, res) => {
 			res.status(204).send();
 		}
 	} catch (err) {
-		const errors = handleErrors(err);
-		res.status(500).json({ errors });
+		res.status(500).json({ err });
 		res.status(400);
 	}
 };
