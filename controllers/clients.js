@@ -1,7 +1,5 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
-const Clients = require('../models/clients-model');
-//const handleErrors = require('../helper/handleErrors');
 
 const getAllClient = async (req, res) => {
   const result = await mongodb.getDb().db().collection('clients').find();
@@ -21,54 +19,44 @@ const getSingleClient = async (req, res) => {
 };
 
 const createClient = async (req, res) => {
-  try {
-		const client = new Clients({
-			first_name: req.body.first_name,
-      last_name: req.body.last_name,
-      email_address: req.body.email_address,
-      phoneNumber: req.body.phoneNumber,
-      street_address: req.body.street_address,
-      city: req.body.city,
-		});
-
-		const response = await client.save();
-		res.status(201).json(response);
-
-	} catch (err) {
-		res.status(500).json({ err });
-		res.status(400);
-	}
+  const client = {
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    email_address: req.body.email_address,
+    phoneNumber: req.body.phoneNumber,
+    street_address: req.body.street_address,
+    city: req.body.city
+  };
+  const response = await mongodb.getDb().db().collection('clients').insertOne(client);
+  if (response.acknowledged) {
+    res.status(201).json(response);
+  } else {
+    res.status(500).json(response.error || 'Some error occurred while creating the client.');
+  }
 };
 
-
 const updateClient = async (req, res) => {
-  try {
-		if (!ObjectId.isValid(req.params.id)) {
-			res.status(400).json('Client ID is not a valid Mongo ID');
-		}
-		const clientId = new ObjectId(req.params.id);
-		const updatedClient = {
-			first_name: req.body.first_name,
-      last_name: req.body.last_name,
-      email_address: req.body.email_address,
-      phoneNumber: req.body.phoneNumber,
-      street_address: req.body.street_address,
-      city: req.body.city,
-		};
-
-		const response = await Clients
-			.findOneAndUpdate({ _id: clientId }, updatedClient, {
-				runValidators: true,
-				new: true,
-			});
-
-		if (response) {
-			res.status(204).send();
-		}
-	} catch (err) {
-		res.status(500).json({ err });
-		res.status(400);
-	}
+  const clientId = new ObjectId(req.params.id);
+  // be aware of updateOne if you only want to update specific fields
+  const client = {
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    email_address: req.body.email_address,
+    phoneNumber: req.body.phoneNumber,
+    street_address: req.body.street_address,
+    city: req.body.city
+  };
+  const response = await mongodb
+    .getDb()
+    .db()
+    .collection('clients')
+    .replaceOne({ _id: clientId }, client);
+  console.log(response);
+  if (response.modifiedCount > 0) {
+    res.status(204).send();
+  } else {
+    res.status(500).json(response.error || 'Some error occurred while updating the client.');
+  }
 };
 
 const deleteClient = async (req, res) => {
@@ -76,7 +64,7 @@ const deleteClient = async (req, res) => {
   const response = await mongodb.getDb().db().collection('clients').remove({ _id: clientId }, true);
   console.log(response);
   if (response.deletedCount > 0) {
-    res.status(200).send();
+    res.status(204).send();
   } else {
     res.status(500).json(response.error || 'Some error occurred while deleting the client.');
   }
