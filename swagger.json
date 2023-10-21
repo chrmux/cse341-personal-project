@@ -42,19 +42,22 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": {
+                "email_address": {
                   "example": "any"
                 },
-                "lastName": {
+                "first_name": {
                   "example": "any"
                 },
-                "email": {
+                "last_name": {
                   "example": "any"
                 },
-                "favoriteColor": {
+                "phoneNumber": {
                   "example": "any"
                 },
-                "birthday": {
+                "street_address": {
+                  "example": "any"
+                },
+                "city": {
                   "example": "any"
                 }
               }
@@ -108,19 +111,22 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": {
+                "email_address": {
                   "example": "any"
                 },
-                "lastName": {
+                "first_name": {
                   "example": "any"
                 },
-                "email": {
+                "last_name": {
                   "example": "any"
                 },
-                "favoriteColor": {
+                "phoneNumber": {
                   "example": "any"
                 },
-                "birthday": {
+                "street_address": {
+                  "example": "any"
+                },
+                "city": {
                   "example": "any"
                 }
               }

@@ -24,11 +24,13 @@ const getSingleCar = async (req, res) => {
 // Add a new car
 const createCar = async (req, res) => {
     const car = {
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      favoriteColor: req.body.favoriteColor,
-      birthday: req.body.birthday
+      make: req.body.make,
+      model: req.body.model,
+      description: req.body.description,
+      image: req.body.image,
+      price: req.body.price,
+      color: req.body.color,
+      stock: req.body.stock
     };
     const response = await mongodb.getDb().db().collection('cars').insertOne(car);
     if (response.acknowledged) {
@@ -75,7 +77,7 @@ const deleteCar = async (req, res) => {
       .deleteOne({ _id: carId }, true);
     console.log(response);
     if (response.deletedCount > 0) {
-      res.status(204).send();
+      res.status(200).send();
     } else {
       res.status(500).json(response.error || 'Some error occurred while deleting the car.');
     }

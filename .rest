@@ -12,10 +12,10 @@ POST http://localhost:8080/clients HTTP/1.1
 content-type: application/json
 
   {
-    "first_name": "jerry",
+    "first_name": "Catherine",
     "last_name": "marollano",
-    "email_address": "jnmarollano@gmail.com",
-    "phoneNumber": "5555-555-555",
+    "email_address": "cath@test.com",
+    "phoneNumber": "09091115294",
     "street_address": "P-6 POB AREA Daraga Albay",
     "city": "Legazpi"
   }
@@ -29,7 +29,7 @@ content-type: application/json
     "first_name": "jerry",
     "last_name": "marollano",
     "email_address": "jnmarollano@gmail.com",
-    "phoneNumber": "5555-555-555",
+    "phoneNumber": "09977093208",
     "street_address": "P-6 POB AREA Daraga Albay",
     "city": "Legazpi"
   }
