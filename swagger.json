@@ -8,7 +8,8 @@
   "host": "localhost:8080",
   "basePath": "/",
   "schemes": [
-    "http"
+    "http",
+    "https"
   ],
   "paths": {
     "/api-docs": {
@@ -43,6 +44,9 @@
               "type": "object",
               "properties": {
                 "email_address": {
+                  "example": "any"
+                },
+                "password": {
                   "example": "any"
                 },
                 "first_name": {
@@ -112,6 +116,9 @@
               "type": "object",
               "properties": {
                 "email_address": {
+                  "example": "any"
+                },
+                "password": {
                   "example": "any"
                 },
                 "first_name": {

@@ -1,10 +1,10 @@
 // LOCALHOST
 ### Get all contacts
-GET http://localhost:8080/cars 
+GET http://localhost:8080/clients 
 
 
 ### Get contact by id
-GET http://localhost:8080/clients/652eaf1b2cc3f2c6f336f7af
+GET http://localhost:8080/clients/6535ee1a6bbf751edb006d74
 
 
 ### Create contact
@@ -12,29 +12,31 @@ POST http://localhost:8080/clients HTTP/1.1
 content-type: application/json
 
   {
-    "first_name": "Catherine",
-    "last_name": "marollano",
-    "email_address": "cath@test.com",
-    "phoneNumber": "09091115294",
-    "street_address": "P-6 POB AREA Daraga Albay",
-    "city": "Legazpi"
+    "email_address": "kiev@test.com",
+    "password": "123456789",
+    "first_name": "Kiev",
+    "last_name": "Serrano",
+    "phoneNumber": "",
+    "street_address": "Zone 5 La Purisima",
+    "city": "Iriga"
   }
 
 
 ### PUT contact
-PUT http://localhost:8080/clients/652eaf1b2cc3f2c6f336f7af HTTP/1.1
+PUT http://localhost:8080/clients/6535ee1a6bbf751edb006d74 HTTP/1.1
 content-type: application/json
 
   {
-    "first_name": "jerry",
-    "last_name": "marollano",
-    "email_address": "jnmarollano@gmail.com",
-    "phoneNumber": "09977093208",
-    "street_address": "P-6 POB AREA Daraga Albay",
-    "city": "Legazpi"
+   "email_address": "keshh@test.com",
+    "password": "123456789",
+    "first_name": "Kesia",
+    "last_name": "Marollano",
+    "phoneNumber": "4444-555-4444",
+    "street_address": "P-6 Area POB",
+    "city": "Daraga"
   }
 ### DELETE contact
-DELETE http://localhost:8080/clients/652eaf1b2cc3f2c6f336f7af HTTP/1.1
+DELETE http://localhost:8080/clients/6535ee1a6bbf751edb006d74 HTTP/1.1
 
 // PRODUCTION Deploy
 ### Get all contacts
